@@ -1,0 +1,5 @@
+*.pdf
+*.pptx
+*.html
+.vscode
+slides/.$diagrams.drawio.bkp
