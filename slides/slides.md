@@ -375,6 +375,7 @@ Da stellt sich die frage, so ein DevOpsler muss ja ne Menge können/wissen?
 ## Nice to haves
 - Provide/utilize a extensible real-time chat solution
 - Provide a secret management solution
+- Provide a SSO Mechanism for internal/external authentication
 
 <!--
 MS teams nicht von Devops managen lassen
@@ -411,7 +412,235 @@ _footer: |
 -->
 ---
 
-# Softwarization
+# Softwareization
+
+- Everything as Code
+
+---
+
+# Infrastructure
+```json
+module "ec2_instance" {
+  source  = "terraform-aws-modules/ec2-instance/aws"
+  version = "~> 3.0"
+
+  name = "not-a-fruit-😡"
+
+  ami                    = "ami-ebd02392"
+  instance_type          = "t3a.large"
+  key_name               = "mykey"
+  monitoring             = true
+  vpc_security_group_ids = ["sg-12345678"]
+  subnet_id              = "subnet-eddcdzz4"
+
+  tags = {
+    Terraform   = "true"
+    Environment = "dev"
+  }
+}
+```
+
+---
+
+# Infrastructure
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2021-11-01",
+  "name": "i-run-on-azure-😅",
+  "location": "string",
+  "tags": {
+    "tagName1": "tagValue1",
+    "tagName2": "tagValue2"
+  },
+
+[...]
+
+  "zones": [ "string" ]
+}
+```
+---
+
+## Kubernetes Cluster
+```yaml
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: 🍌-prod
+nodes:
+- role: control-plane
+- role: worker
+- role: worker
+- role: worker
+networking:
+  disableDefaultCNI: true
+```
+
+---
+
+## Kubernetes Cluster
+```yaml
+apiVersion: k0sctl.k0sproject.io/v1beta1
+kind: Cluster
+metadata:
+  name: 🍎-prod
+spec:
+  hosts:
+  - role: controller
+    ssh:
+      address: 10.0.0.255
+[...]
+  k0s:
+    version: 1.23.6+k0s.0
+    config:
+      apiVersion: k0s.k0sproject.io/v1beta1
+      kind: Cluster
+      metadata:
+        name: hi-im-k0s-cluster
+      spec:
+        api:
+          extraArgs:
+            service-node-port-range: 80-32767
+        network:
+          podCIDR: 10.0.10.0/24
+          serviceCIDR: 10.0.11.0/24
+```
+---
+
+# Kubernetes Cluster
+```json
+module "eks" {
+  source  = "terraform-aws-modules/eks/aws"
+  version = "~> 18.0"
+
+  cluster_name    = "🍑-prod"
+  cluster_version = "1.21"
+  vpc_id     = "vpc-1234556abcdef"
+  subnet_ids = ["subnet-abcde012", "subnet-bcde012a", "subnet-fghi345a"]
+  cluster_endpoint_private_access = true
+  cluster_endpoint_public_access  = true
+
+  cluster_addons = {
+    coredns = {
+      resolve_conflicts = "OVERWRITE"
+    }
+    kube-proxy = {}
+    vpc-cni = {
+      resolve_conflicts = "OVERWRITE"
+    }
+  }
+
+  eks_managed_node_groups = {
+    blue = {}
+    green = {
+      min_size     = 1
+      max_size     = 10
+      desired_size = 1
+
+      instance_types = ["t3.large"]
+      capacity_type  = "SPOT"
+    }
+  }
+}
+```
+
+---
+
+# Applications
+ansible:
+```yaml
+- hosts: all
+
+  vars:
+    pip_install_packages:
+      - name: docker
+
+  roles:
+    - geerlingguy.pip
+    - geerlingguy.docker
+```
+helm:
+```sh
+helm install argocd -n managed-services -f argo-values.yaml argocd/argocd
+```
+
+---
+# Certificates
+
+```yaml
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: noemoji-api
+  namespace: prod
+spec:
+  secretName: frontent-ext-tls
+  duration: 2160h # 90d
+  renewBefore: 360h # 15d
+  subject:
+    organizations:
+      - ACME
+  isCA: false
+  privateKey:
+    algorithm: RSA
+    encoding: PKCS1
+    size: 4096
+  usages:
+    - server auth
+  dnsNames:
+    - api.noemoji.io
+  issuerRef:
+    name: ca-issuer
+    kind: Issuer
+    group: cert-manager.io
+```
+
+---
+
+# Softwareization
+
+1. Make an entry in the CMDB
+1. Order a new network from the network team
+1. Order some VMs from the virtualization team
+1. Setup the VMs
+1. Install a database
+1. Install the application
+1. Configure the application
+1. Notify the Monitoring team
+1. Setup DNS
+1. Setup the Reverse Proxy
+1. Order TLS Certificates
+1. Setup TLS Termination
+
+<!--
+_footer: ""
+
+Entweder ich muss mich mit einem haufen systeme befassen.
+
+oder ich muss mit einem haufen Leuten Sprechen
+-->
+
+---
+
+| Task                     | K8s                                                             | AWS               |
+| ------------------------ | --------------------------------------------------------------- | ----------------- |
+| CMDB 📖                  | webhook                                                         | webhook           |
+| Configure Network 🕸      | Network Policies                                                | VPC               |
+| Provision VM 🖥           | Pod                                                             | EC2               |
+| Install DB 🖥             | StatefulSet                                                     | RDS               |
+| Install Application 🔧   | Container Image                                                 | SSM ConfigManager |
+| Monitoring 🔔            | [prometheus](https://prometheus-operator.dev)                   | CloudWatch        |
+| DNS 🔭                   | [external-dns](https://github.com/kubernetes-sigs/external-dns) | Route53           |
+| ReverseProxy 📡          | Ingress                                                         | AWS ELB           |
+| TLS 🔐              | [cert-manager](https://cert-manager.io)                         | AWS ELB           |
+
+---
+
+# 🗣 + 👐 ⟶ 🖹
+
+- Source Control
+- Code Reviews
+- Reproducability
+- Standardization
 
 ---
 
@@ -522,7 +751,7 @@ But:
 
 ---
 
-![bg right](https://www.researchgate.net/profile/Kereshmeh-Afsari/publication/305492753/figure/fig8/AS:386496688345113@1469159399522/Tight-coupling-top-vs-loose-coupling-bottom-between-Cloud-applications.png)
+![bg right fit](https://www.researchgate.net/profile/Kereshmeh-Afsari/publication/305492753/figure/fig8/AS:386496688345113@1469159399522/Tight-coupling-top-vs-loose-coupling-bottom-between-Cloud-applications.png)
 
 # Loose coupling
 
@@ -533,6 +762,12 @@ But:
 * eventually consistent
 
 <!-- vorgänge werden asynchron abgehandelt -->
+
+---
+
+- Application
+- Database
+- Webserver 
 
 ---
 
