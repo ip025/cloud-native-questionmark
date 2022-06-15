@@ -41,6 +41,11 @@ Angefangen als linux admin
 dann public cloud engineer
 und allgemein automation
 -->
+---
+
+# Motivation
+
+- What are Cloud Native Applications?
 
 ---
 
@@ -142,14 +147,14 @@ Google -> Wikipedia -> CNCF
 ---
 
 ## Kratzke, Quint (2017)
-* Standardized Deployment Units
-* State Isolation
-* Versioned REST APIs
-* Microservices
-* Loose coupling
-* Softwarization
-* Elastic Platforms
-* DevOps
+1. Standardized Deployment Units
+1. Microservices
+1. DevOps
+2. Softwarization
+3. Loose coupling
+4. Elastic Platforms
+5. State Isolation
+6. Versioned REST APIs
 
 ---
 
@@ -362,7 +367,7 @@ Mit den DEVs zusammen pipelines entwickeln!
 
 # The DevOps platform team
 ## Looking Ahead
-- provide the necessary features *now*
+- provide the necessary platform and capabilities *now*
 - steer into the right direction for *the future*
 
 <!--
@@ -382,34 +387,6 @@ MS teams nicht von Devops managen lassen
 aber dann bitte die webhook API freischalten dasman über deployments informieren kann
 -->
 
----
-
-![](./images/devops-pyramid-1.png)
-
-<!--
-_footer: |
-    From Cloud Naive to Cloud Native - Avoiding mistakes everyone does
-    Max Körbächer, Liquid Reply
--->
-
----
-
-![](images/devops-pyramid-2.png)
-
-<!--
-_footer: |
-    From Cloud Naive to Cloud Native - Avoiding mistakes everyone does
-    Max Körbächer, Liquid Reply
--->
----
-
-![](images/devops-pyramid-3.png)
-
-<!--
-_footer: |
-    From Cloud Naive to Cloud Native - Avoiding mistakes everyone does
-    Max Körbächer, Liquid Reply
--->
 ---
 
 # Softwareization
@@ -730,15 +707,25 @@ oder ich muss mit einem haufen Leuten Sprechen
 
 ---
 
-
-
 # Versioned REST APIs
 
-![bg right](https://www.opc-router.de/wp-content/uploads/2020/04/OPC-Client_600x400px-1.png)
+<!-- ![bg right fit](https://www.opc-router.de/wp-content/uploads/2020/04/OPC-Client_600x400px-1.png) -->
+
+---
+
+![bg center fit](images/backend_bad.png)
+
+<!--
+Desktop app in go
+cli in python (eingekauft)
+mobile App in kotlin
+-->
 
 ---
 
 # Versioned REST APIs
+
+![bg right fit](images/backend_nice.png)
 
 * scalable
 * utilizes existing infrastructure
@@ -775,8 +762,39 @@ But:
 
 ---
 
+![](./images/devops-pyramid-1.png)
+
+<!--
+_footer: |
+    From Cloud Naive to Cloud Native - Avoiding mistakes everyone does
+    Max Körbächer, Liquid Reply
+-->
+
+---
+
+![](images/devops-pyramid-2.png)
+
+<!--
+_footer: |
+    From Cloud Naive to Cloud Native - Avoiding mistakes everyone does
+    Max Körbächer, Liquid Reply
+-->
+---
+
+![](images/devops-pyramid-3.png)
+
+<!--
+_footer: |
+    From Cloud Naive to Cloud Native - Avoiding mistakes everyone does
+    Max Körbächer, Liquid Reply
+-->
+---
+
 
 # Limitations
 
-* serverless
-
+* scale
+<!--
+Wir brauchen teams für das alles
+macht keinen sinn wenn wir für 5 MA selbstgebaute app 
+-->
