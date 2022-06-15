@@ -312,7 +312,7 @@ Im falle von OnPrem K8s müssen die nodes ja auch iwo laufen
 - Implement alerting to enforce good security practices
   - Allow only signed images from internal registry
   - Alert when deploying an container image with known CVEs
-  - Only allow deployment when a healthcheck is defined
+  - Only allow deployment when a Healthcheck is defined
 
 <!--
 Erlaube nicht ohne Healthchecks zu deployen
@@ -358,7 +358,7 @@ Mit den DEVs zusammen pipelines entwickeln!
 ---
 # The DevOps platform team
 ## Simplification
-- The devs are the customer, make their work as frictionless as possible
+- The developers are the customer, make their work as frictionless as possible
   - Train - present the features of the technology stack
   - Educate - give recommendations on application patterns
   - Encourage - provide a playground for experiments
