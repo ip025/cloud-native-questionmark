@@ -764,7 +764,7 @@ mobile App in kotlin
 
 * scalable
 * utilizes existing infrastructure
-* widespread and well defined standards
+* widespread and well defined standards (HTTP, JSON)
 
 But:
 * gRPC on the horizon
