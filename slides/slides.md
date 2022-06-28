@@ -167,7 +167,7 @@ _footer: ""
 ---
 
 
-![bg left fit](https://www.com-magazin.de/img/9/3/7/1/9/7/Docker_w492_h312.jpg)
+![bg right fit](https://www.com-magazin.de/img/9/3/7/1/9/7/Docker_w492_h312.jpg)
 
 # Standardized Deployment Units
 
@@ -184,21 +184,19 @@ Muss kein Container sein Virtual Applicances
 
 ---
 
-# What are Standardized Deployment Units?
-
-![](images/bare-vm-container-faas.png)
-
-<!--
-![](https://miro.medium.com/max/1400/1*cgaBv9WOLVzihnSxZlUmmQ.png)
--->
-
----
-
 # Standardized Deployment Units
 ![](images/2022-06-02%2016.59.54%20trends.google.de%205e1fa17caf2c.png)
 <!--
 warum container und nicht VM?
 TODO: Serverless adden
+-->
+
+---
+
+![bg fit center](images/bare-vm-container-faas.png)
+
+<!--
+![](https://miro.medium.com/max/1400/1*cgaBv9WOLVzihnSxZlUmmQ.png)
 -->
 
 ---
@@ -215,8 +213,6 @@ TODO: Serverless adden
 
 
 ---
-
-# Microservices
 
 ![bg fit](https://live.staticflickr.com/2236/13109673843_a39e69dd13_3k.jpg)
 
@@ -304,7 +300,7 @@ abgesehen von systemd
    2. [DevOps: The consequences of blame (2018)](https://opensource.com/article/18/9/consequences-blame-your-devops-team)
    3. [Culture of blaming Ops (/r/kubernetes)](https://www.reddit.com/r/devops/comments/v9wafq/culture_of_blaming_ops/) 
 
-![bg left fit](images/ops_role.png)
+![bg right fit](images/ops_role.png)
 
 ---
 
@@ -381,7 +377,7 @@ Mit den DEVs zusammen pipelines entwickeln!
   - preconfigured helm charts
   - docker-compose templates
   - ansible roles
-- Write **good** documentation
+- Write ~~**good**~~ documentation
 
 <!--
 
