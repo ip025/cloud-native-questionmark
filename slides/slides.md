@@ -27,7 +27,7 @@ _footer: ""
 # whoami
 
 * Michael Kreipl
-* DevOps Conultant
+* DevOps Consultant
 
 Fields of Interest:
 - Infrastructure Automation
@@ -205,15 +205,16 @@ TODO: Serverless adden
 
 # Microservices
 
-<!--
-_footer: https://www.flickr.com/photos/psd/13109673843 - no changes
--->
+
 ---
 
 # Microservices
 
-![](https://live.staticflickr.com/2236/13109673843_a39e69dd13_3k.jpg)
+![bg fit](https://live.staticflickr.com/2236/13109673843_a39e69dd13_3k.jpg)
 
+<!--
+_footer: https://www.flickr.com/photos/psd/13109673843 - no changes
+-->
 ---
 
 ![bg fit](images/monolith.png)
@@ -226,20 +227,43 @@ Der Blaue rand ist eine deployment unit
 
 ![bg fit](images/microservice.png)
 
+---
+
+![bg right ](https://grugbrain.dev/grug.png)
+
+# The Eternal Enemy: Complexity
+
+> apex predator of grug is complexity
+  complexity bad
+  say again:
+  complexity very bad
+  you say now:
+  complexity very, very bad
+  [...]
+  
+— https://grugbrain.dev
+
 <!--
-Eine Sache ziemlich gut machen? Das kommt uns doch bekannt vor
+Abgekapselte einheuten die eine Sache ziemlich gut machen?
+Das kommt uns doch bekannt vor
 -->
 
 ---
+
+# The Unix philosophy
 
 > (i) Make each program do one thing well. To do a new job, build afresh rather than complicate old programs by adding new features. 
 
 — Eric Steven Raymond in Bell System Technical Journal (1978)
 
+<!--
+z.b. ls, mv, tree, touch
+abgesehen von systemd
+-->
+
 ---
 
 ![bg right fit](https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Devops-toolchain.svg/768px-Devops-toolchain.svg.png?20160907192548)
-
 
 # DevOps
 
@@ -472,7 +496,7 @@ spec:
       apiVersion: k0s.k0sproject.io/v1beta1
       kind: Cluster
       metadata:
-        name: hi-im-k0s-cluster
+        name: 🍎-prod
       spec:
         api:
           extraArgs:
@@ -511,7 +535,7 @@ module "eks" {
     green = {
       min_size     = 1
       max_size     = 10
-      desired_size = 1
+      desired_size = 5
 
       instance_types = ["t3.large"]
       capacity_type  = "SPOT"
@@ -608,7 +632,7 @@ oder ich muss mit einem haufen Leuten Sprechen
 | Monitoring 🔔            | [prometheus](https://prometheus-operator.dev)                   | CloudWatch        |
 | DNS 🔭                   | [external-dns](https://github.com/kubernetes-sigs/external-dns) | Route53           |
 | ReverseProxy 📡          | Ingress                                                         | AWS ELB           |
-| TLS 🔐              | [cert-manager](https://cert-manager.io)                         | AWS ELB           |
+| TLS 🔐              | [cert-manager](https://cert-manager.io)                         | AWS ELB, AWS Certificate Manager            |
 
 ---
 
@@ -637,7 +661,7 @@ oder ich muss mit einem haufen Leuten Sprechen
 
 * Docker Swarm
 * Apache Mesos
-* Hashicorp Nomad
+* HashiCorp Nomad
 * AWS Elastic Container Service (ECS)
 * Azure Container Apps
 
@@ -677,7 +701,19 @@ oder ich muss mit einem haufen Leuten Sprechen
 
 # Examples for Stateless Applications
 
-![](images/stateless_1.png)
+---
+
+![bg center fit](images/stateless_1.svg)
+
+<!--
+-->
+
+---
+
+# Examples for Stateless Applications
+---
+
+![bg center fit](images/stateless_2.png)
 
 <!--
 -->
@@ -686,16 +722,9 @@ oder ich muss mit einem haufen Leuten Sprechen
 
 # Examples for Stateless Applications
 
-![](images/stateless_2.png)
-
-<!--
--->
-
 ---
 
-# Examples for Stateless Applications
-
-![](images/stateless_3.png)
+![bg center fit](images/stateless_3.png)
 
 <!--
 -->
@@ -703,7 +732,9 @@ oder ich muss mit einem haufen Leuten Sprechen
 ---
 # Examples for Stateful Applications
 
-![](images/stateful_2.png)
+---
+
+![bg center fit](images/stateful_2.png)
 
 ---
 
