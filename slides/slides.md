@@ -52,7 +52,7 @@ und allgemein automation
 # Agenda
 
 1. Naive Approach
-2. Community Approach
+2. Organizational Approach
 3. Science
 4. Towards a Definition
 5. What now? 
@@ -89,7 +89,15 @@ Google -> Wikipedia -> CNCF
 
 ---
 
-# Communicative Approach
+# Organizational Approach
+
+---
+
+![bg fit](images/x-cellent-cloudnative.png)
+
+<!--
+_footer: ""
+-->
 
 ---
 
@@ -103,7 +111,7 @@ Google -> Wikipedia -> CNCF
 ---
 
 # People
-- Well Beeing
+- Well Being
 - Self Development
 - Diversity
 - Education
