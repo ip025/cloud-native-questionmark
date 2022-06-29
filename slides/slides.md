@@ -108,7 +108,8 @@ _footer: ""
 * Tech
 * Engineering
 
----
+<!--
+je nachdem mit wem man spricht
 
 # People
 - Well Being
@@ -143,6 +144,8 @@ _footer: ""
 - 12 Factor
 - Security
 - Container
+-->
+
 
 ---
 
@@ -313,7 +316,7 @@ wo ist denn dann der OPS hin? Spare ich mir da Personal? -> Platform team
 
 ---
 
-# The DevOps platform team
+# DevOps: The platform team
 
 ---
 
@@ -335,7 +338,7 @@ Im falle von OnPrem K8s müssen die nodes ja auch iwo laufen
 
 ---
 
-# The DevOps platform team
+# DevOps: The platform team
 ## Security
 - Implement alerting to enforce good security practices
   - Allow only signed images from internal registry
@@ -349,7 +352,7 @@ erlaube keine Container Images zu deployen die bekannte CVEs enthalten
 
 ---
 
-# The DevOps platform team
+# DevOps: The platform team
 ## CI/CD
 - Setting up and maintaining a **central** CI/CD Platform
 - Setup and maintain test, deploy and verification pipelines for software products
@@ -360,7 +363,7 @@ Mit den DEVs zusammen pipelines entwickeln!
 
 ---
 
-# The DevOps platform team
+# DevOps: The platform team
 ## Observability
   - Provide and maintain a **central** Observability Stack
     - Logging
@@ -370,7 +373,7 @@ Mit den DEVs zusammen pipelines entwickeln!
 
 ---
 
-# The DevOps platform team
+# DevOps: The platform team
 ## Best Practices
 - Provide manageable solutions that are proven to work
   - terraform modules
@@ -384,7 +387,7 @@ Mit den DEVs zusammen pipelines entwickeln!
 -->
 
 ---
-# The DevOps platform team
+# DevOps: The platform team
 ## Simplification
 - The developers are the customer, make their work as frictionless as possible
   - Train - present the features of the technology stack
@@ -393,7 +396,7 @@ Mit den DEVs zusammen pipelines entwickeln!
 
 ---
 
-# The DevOps platform team
+# DevOps: The platform team
 ## Looking Ahead
 - provide the necessary platform and capabilities *now*
 - steer into the right direction for *the future*
@@ -404,7 +407,7 @@ Da stellt sich die frage, so ein DevOpsler muss ja ne Menge können/wissen?
 
 ---
 
-# The DevOps platform team
+# DevOps: The platform team
 ## Nice to haves
 - Provide/utilize a extensible real-time chat solution
 - Provide a secret management solution
@@ -429,7 +432,7 @@ module "ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "~> 3.0"
 
-  name = "not-a-fruit-😡"
+  name = "🐄-Bella"
 
   ami                    = "ami-ebd02392"
   instance_type          = "t3a.large"
@@ -604,17 +607,17 @@ spec:
 # Softwareization
 
 1. Make an entry in the CMDB
-1. Order a new network from the network team
-1. Order some VMs from the virtualization team
-1. Setup the VMs
-1. Install a database
-1. Install the application
-1. Configure the application
-1. Notify the Monitoring team
-1. Setup DNS
-1. Setup the Reverse Proxy
-1. Order TLS Certificates
-1. Setup TLS Termination
+2. Order a new network from the network team
+3. Order some VMs from the virtualization team
+4. Setup the VMs
+5. Install a database
+6. Install the application
+7. Configure the application
+8. Notify the Monitoring team
+9. Setup DNS
+10. Setup the Reverse Proxy
+11. Order TLS Certificates
+12. Setup TLS Termination
 
 <!--
 _footer: ""
@@ -787,9 +790,31 @@ But:
 
 ---
 
-- Application
-- Database
-- Webserver 
+![bg center fit](images/broken_system.png)
+
+<!--
+Wir machen grug traurig und holen uns mehr Komplexität ins System
+-->
+
+---
+
+![bg center fit](images/buffered_system.png)
+
+<!--
+wenn unser system ordentlich engineered ist kann eine beliebige instanz die angefallenen inputs abarbeiten
+
+-> Verzögerung aber kein Zeitverlust
+-->
+
+---
+
+## *Buffer* Implementations
+- Database (CockroachDB)
+- AMQP (Azure Service Bus Messaging, RabbitMQ, Red Hat AMQ)
+
+<!--
+Datenbanken mit einschränkungen, Performance, Dual Write Problem etc. https://www.cockroachlabs.com/blog/message-queuing-database-kafka/#:~:text=A%20message%20queue%20is%20essentially,not%20ready%20to%20receive%20it.
+-->
 
 ---
 
@@ -828,7 +853,9 @@ _footer: |
 
 # Limitations
 
-* scale
+* Scale
+* Acceptance
+
 <!--
 Wir brauchen teams für das alles
 macht keinen sinn wenn wir für 5 MA selbstgebaute app 
