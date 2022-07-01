@@ -613,7 +613,7 @@ metadata:
   name: noemoji-api
   namespace: prod
 spec:
-  secretName: frontent-ext-tls
+  secretName: frontend-ext-tls
   duration: 2160h # 90d
   renewBefore: 360h # 15d
   subject:
@@ -685,7 +685,7 @@ _footer: ""
 -->
 
 <!--
-Entweder ich muss mich mit einem haufen systeme befassen.
+Entweder ich muss mich mit einem haufen systemen befassen.
 
 oder ich muss mit einem haufen Leuten Sprechen
 -->
@@ -694,7 +694,7 @@ oder ich muss mit einem haufen Leuten Sprechen
 
 | Task                     | K8s                                                             | AWS               |
 | ------------------------ | --------------------------------------------------------------- | ----------------- |
-| CMDB 📖                  | webhook                                                         | webhook           |
+| CMDB 📖                  | CRD                                                         | webhook           |
 | Configure Network 🕸      | Network Policies                                                | VPC               |
 | Provision VM 🖥           | Pod                                                             | EC2               |
 | Install DB 🖥             | StatefulSet                                                     | RDS               |
@@ -723,7 +723,7 @@ oder ich muss mit einem haufen Leuten Sprechen
 
 > Middleware for the execution of custom applications, their communication, and data storage is offered via a self-service interface over a network.
 
-— Fehling et al. (2014) Cloud Computing Patterns
+— *Fehling et al. (2014) Cloud Computing Patterns*
 
 ---
 
@@ -851,11 +851,11 @@ But:
 
 ---
 
-```bash
+```
 curl -v -X GET localhost/health
 ```
 
-```bash
+```
 *   Trying 127.0.0.1:80...
 * Connected to localhost (127.0.0.1) port 80 (#0)
 > GET /health HTTP/1.1
@@ -871,13 +871,17 @@ curl -v -X GET localhost/health
 * Connection #0 to host localhost left intact
 ```
 
+<!--
+_footer: https://github.com/traefik/whoami
+-->
+
 ---
 
-```bash
+```
 curl -v -X POST -d '418' localhost/health
 ```
 
-```bash
+```
 *   Trying 127.0.0.1:80...
 * Connected to localhost (127.0.0.1) port 80 (#0)
 > POST /health HTTP/1.1
@@ -895,13 +899,17 @@ curl -v -X POST -d '418' localhost/health
 * Connection #0 to host localhost left intact
 ```
 
+<!--
+_footer: https://github.com/traefik/whoami
+-->
+
 ---
 
-```bash
+```
 curl -v -X GET localhost/health
 ```
 
-```bash
+```
 *   Trying 127.0.0.1:80...
 * Connected to localhost (127.0.0.1) port 80 (#0)
 > GET /health HTTP/1.1
@@ -916,6 +924,10 @@ curl -v -X GET localhost/health
 < 
 * Connection #0 to host localhost left intact
 ```
+
+<!--
+_footer: https://github.com/traefik/whoami
+-->
 
 ---
 
@@ -1031,3 +1043,5 @@ _footer: |
 Wir brauchen teams für das alles
 macht keinen sinn wenn wir für 5 MA selbstgebaute app 
 -->
+
+---
