@@ -10,7 +10,7 @@ _paginate: false
 _footer: ""
 -->
 
-# Cloud Native?
+# What is Cloud Native?
 ### Michael Kreipl
 ### 08.07.2022
 
@@ -46,6 +46,11 @@ und allgemein automation
 # Motivation
 
 - What are Cloud Native Applications?
+- Everywhere you look there are different nuances, are they fundamentally the same thing?
+
+<!--
+wenns in der cloud läuft cloud-native? warscheinlich nicht
+-->
 
 ---
 
@@ -70,8 +75,6 @@ Google -> Wikipedia -> CNCF
 > Cloud native technologies empower organizations to build and run scalable applications in modern, dynamic environments such as public, private, and hybrid clouds. Containers, service meshes, microservices, immutable infrastructure, and declarative APIs exemplify this approach.
 > 
 >  These techniques enable loosely coupled systems that are resilient, manageable, and observable. Combined with robust automation, they allow engineers to make high-impact changes frequently and predictably with minimal toil.
-> 
->  The Cloud Native Computing Foundation seeks to drive adoption of this paradigm by fostering and sustaining an ecosystem of open source, vendor-neutral projects. We democratize state-of-the-art patterns to make these innovations accessible for everyone.
 
 — *CNCF Cloud Native Definition v1.0*
 
@@ -149,7 +152,7 @@ je nachdem mit wem man spricht
 
 ---
 
-# Science
+# Research
 
 ---
 
@@ -157,7 +160,8 @@ je nachdem mit wem man spricht
 
 ---
 
-## Kratzke, Quint (2017)
+# Kratzke, Quint (2017)
+## Eight identified Trends
 1. Standardized Deployment Units
 1. Microservices
 1. DevOps
@@ -166,6 +170,10 @@ je nachdem mit wem man spricht
 4. Elastic Platforms
 5. State Isolation
 6. Versioned REST APIs
+
+<!--
+Metanalyse zum Thema
+-->
 
 ---
 
@@ -177,6 +185,8 @@ je nachdem mit wem man spricht
 ---
 
 # Standardized Deployment Units
+
+## Definition
 
 Deployment units wrap a piece of software *in a complete filesystem* that contains everything needed to run: code, *runtime, system tools, system libraries*
 
@@ -204,6 +214,7 @@ TODO: Serverless adden
 
 ---
 
+# Standardized Deployment Units
 ## Notable early mentions
 
 * Gaurav Banga, Peter Druschel, and Jeffrey C. Mogul. (1999) Resource containers: A new facility for resource management in server systems.
@@ -211,16 +222,14 @@ TODO: Serverless adden
 
 ---
 
-
 # Microservices
-
 
 ---
 
 ![bg fit](https://live.staticflickr.com/2236/13109673843_a39e69dd13_3k.jpg)
 
 <!--
-_footer: https://www.flickr.com/photos/psd/13109673843 - no changes
+_footer: https://www.flickr.com/photos/psd/13109673843
 -->
 ---
 
@@ -241,14 +250,23 @@ Der Blaue rand ist eine deployment unit
 # The Eternal Enemy: Complexity
 
 > apex predator of grug is complexity
-  complexity bad
-  say again:
-  complexity very bad
-  you say now:
-  complexity very, very bad
-  [...]
+> 
+> complexity bad
+> 
+> say again:
+> 
+> complexity very bad
+> 
+> you say now:
+> 
+> complexity very, very bad
+[...]
   
-— https://grugbrain.dev
+— *https://grugbrain.dev*
+
+<!--
+_footer: ""
+-->
 
 <!--
 Abgekapselte einheuten die eine Sache ziemlich gut machen?
@@ -261,7 +279,7 @@ Das kommt uns doch bekannt vor
 
 > (i) Make each program do one thing well. To do a new job, build afresh rather than complicate old programs by adding new features. 
 
-— Eric Steven Raymond in Bell System Technical Journal (1978)
+— *Eric Steven Raymond in Bell System Technical Journal (1978)*
 
 <!--
 z.b. ls, mv, tree, touch
@@ -277,11 +295,16 @@ abgesehen von systemd
 ---
 
 # DevOps
-- Accelerates build test and deployment of Applications
-- Focus on Automation
+
+A set of technologies and methodologies to produce better software
+
+- Collaboration
+- Automation
+- Accelerates build, test and deployment of applications
 
 ---
 
+# DevOps
 ## The *classic* Dev role
 
 1. Planning
@@ -294,8 +317,8 @@ abgesehen von systemd
 
 ---
 
+# DevOps
 ## The *classic* Ops role
-
 1. Deploy
 2. Monitor
 3. Get blamed for outages
@@ -307,7 +330,11 @@ abgesehen von systemd
 
 ---
 
-![width:1000](https://kubesphere.io/images/devops/dev-ops.png)
+![bg center fit](https://kubesphere.io/images/devops/dev-ops.png)
+
+<!--
+_footer: https://kubesphere.io/images/devops/dev-ops.png
+-->
 
 <!--
 Der DEVELOPER, ganz wichtiger Punkt
@@ -343,11 +370,11 @@ Im falle von OnPrem K8s müssen die nodes ja auch iwo laufen
 - Implement alerting to enforce good security practices
   - Allow only signed images from internal registry
   - Alert when deploying an container image with known CVEs
-  - Only allow deployment when a Healthcheck is defined
+  - Have a forensics plan
 
 <!--
-Erlaube nicht ohne Healthchecks zu deployen
 erlaube keine Container Images zu deployen die bekannte CVEs enthalten
+BSI Sagt: hab einen plan für kompromittierte container
 -->
 
 ---
@@ -422,7 +449,12 @@ aber dann bitte die webhook API freischalten dasman über deployments informiere
 
 # Softwareization
 
+![bg right:60%](https://c.pxhere.com/photos/72/9c/close_up_code_coding_computer_computing_conceptual_data_design-911144.jpg!d)
+
+---
+
 - Everything as Code
+- API First
 
 ---
 
@@ -604,6 +636,35 @@ spec:
 
 ---
 
+# Presentations
+```yaml
+---
+marp: true
+theme: gardener
+footer: Michael Kreipl – x-cellent technologies GmbH
+paginate: true
+backgroundImage: url("https://metal-stack.io/images/shape/banner.png")
+
+---
+
+<!--
+_paginate: false
+_footer: ""
+-->
+
+# Cloud Native?
+### Michael Kreipl
+### 08.07.2022
+
+---
+```
+
+<!--
+_footer: ""
+-->
+
+---
+
 # Softwareization
 
 1. Make an entry in the CMDB
@@ -621,7 +682,9 @@ spec:
 
 <!--
 _footer: ""
+-->
 
+<!--
 Entweder ich muss mich mit einem haufen systeme befassen.
 
 oder ich muss mit einem haufen Leuten Sprechen
@@ -706,7 +769,7 @@ oder ich muss mit einem haufen Leuten Sprechen
 
 ---
 
-# Examples for Stateless Applications
+## Examples for Stateless Applications
 
 ---
 
@@ -717,9 +780,6 @@ oder ich muss mit einem haufen Leuten Sprechen
 
 ---
 
-# Examples for Stateless Applications
----
-
 ![bg center fit](images/stateless_2.png)
 
 <!--
@@ -727,13 +787,10 @@ oder ich muss mit einem haufen Leuten Sprechen
 
 ---
 
-# Examples for Stateless Applications
-
----
-
 ![bg center fit](images/stateless_3.png)
 
 <!--
+wenn man es genau nimmt Mit Machine Identification Code
 -->
 
 ---
@@ -741,7 +798,17 @@ oder ich muss mit einem haufen Leuten Sprechen
 
 ---
 
+![bg center fit ](images/stateful.svg)
+
+---
+
 ![bg center fit](images/stateful_2.png)
+
+<!--
+Wenn ich mich dan in mein Onlinebanking eingeloggt habe, sehe ich hoffentlich meinen Kontostand, meine Transaktionen etc.
+
+heutzutage sind fast alle Applikationen irgendwo stateful beispiel Google Search eigentlich transaktional aber die ganzen metadaten bei Suchen + Tracking
+-->
 
 ---
 
@@ -771,12 +838,86 @@ mobile App in kotlin
 
 But:
 * gRPC on the horizon
+* 
+---
 
 <!-- Studie worauf alles basiert schon älter, daher REST als alternativlos gesehen -->
 
+# Versioned REST APIs
+## Rest Call
+- Path
+- HTTP Verb
+- Payload
+
 ---
 
-![bg right fit](https://www.researchgate.net/profile/Kereshmeh-Afsari/publication/305492753/figure/fig8/AS:386496688345113@1469159399522/Tight-coupling-top-vs-loose-coupling-bottom-between-Cloud-applications.png)
+```bash
+curl -v -X GET localhost/health
+```
+
+```bash
+*   Trying 127.0.0.1:80...
+* Connected to localhost (127.0.0.1) port 80 (#0)
+> GET /health HTTP/1.1
+> Host: localhost
+> User-Agent: curl/7.83.1
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 OK
+< Date: Fri, 01 Jul 2022 13:37:47 GMT
+< Content-Length: 0
+< 
+* Connection #0 to host localhost left intact
+```
+
+---
+
+```bash
+curl -v -X POST -d '418' localhost/health
+```
+
+```bash
+*   Trying 127.0.0.1:80...
+* Connected to localhost (127.0.0.1) port 80 (#0)
+> POST /health HTTP/1.1
+> Host: localhost
+> User-Agent: curl/7.83.1
+> Accept: */*
+> Content-Length: 3
+> Content-Type: application/x-www-form-urlencoded
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 OK
+< Date: Fri, 01 Jul 2022 13:51:20 GMT
+< Content-Length: 0
+< 
+* Connection #0 to host localhost left intact
+```
+
+---
+
+```bash
+curl -v -X GET localhost/health
+```
+
+```bash
+*   Trying 127.0.0.1:80...
+* Connected to localhost (127.0.0.1) port 80 (#0)
+> GET /health HTTP/1.1
+> Host: localhost
+> User-Agent: curl/7.83.1
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 418 I'm a teapot
+< Date: Fri, 01 Jul 2022 13:52:09 GMT
+< Content-Length: 0
+< 
+* Connection #0 to host localhost left intact
+```
+
+---
 
 # Loose coupling
 
@@ -808,13 +949,43 @@ wenn unser system ordentlich engineered ist kann eine beliebige instanz die ange
 
 ---
 
+# Loose coupling
 ## *Buffer* Implementations
 - Database (CockroachDB)
-- AMQP (Azure Service Bus Messaging, RabbitMQ, Red Hat AMQ)
+- AMQP (RabbitMQ, Red Hat AMQ, Azure Service Bus Messaging)
 
 <!--
 Datenbanken mit einschränkungen, Performance, Dual Write Problem etc. https://www.cockroachlabs.com/blog/message-queuing-database-kafka/#:~:text=A%20message%20queue%20is%20essentially,not%20ready%20to%20receive%20it.
 -->
+
+---
+
+# What now?!
+
+1. Standardized Deployment Units
+1. Microservices
+1. DevOps
+2. Softwarization
+3. Loose coupling
+4. Elastic Platforms
+5. State Isolation
+6. Versioned REST APIs
+
+---
+
+> All trends [...] can be seen as **isolated trends.** However, according to practitioners they **fit very well together** and support in a “**natural way**” to build massively scalable and large scale systems which are more and more often called “cloud-native applications”.
+
+— *Kratzke, Quint (2017)*
+
+---
+
+# Reivisiting the CNCF Definition
+
+> Cloud native technologies empower organizations to build and run **scalable applications** in modern, **dynamic environments** such as public, private, and hybrid clouds. **Containers, service meshes, microservices, immutable infrastructure, and declarative APIs** exemplify this approach.
+> 
+>  These techniques enable **loosely coupled systems** that are **resilient, manageable, and observable**. Combined with **robust automation,** they allow engineers to make high-impact changes frequently and predictably with minimal toil.
+
+— *CNCF Cloud Native Definition v1.0*
 
 ---
 
