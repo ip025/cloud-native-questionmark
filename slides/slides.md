@@ -451,6 +451,11 @@ aber dann bitte die webhook API freischalten dasman über deployments informiere
 
 ![bg right:60%](https://c.pxhere.com/photos/72/9c/close_up_code_coding_computer_computing_conceptual_data_design-911144.jpg!d)
 
+<!--
+Source: https://pxhere.com/de/photo/911144
+public domain daher kein credit
+-->
+
 ---
 
 - Everything as Code
@@ -1005,7 +1010,25 @@ Datenbanken mit einschränkungen, Performance, Dual Write Problem etc. https://w
 
 ---
 
-![](./images/devops-pyramid-1.png)
+# Pitfalls
+
+---
+
+![](images/cloud-native-pyramid-1.png)
+
+<!--
+Infrastruktur: technische grundlage, cloud/onprem
+
+business requirement: ist cloud native überhaubt die lösung
+muss ich schnell iterieren?
+muss ich hochverfügbar sein?
+
+Developer platform:
+das was das devops platform team bereitstellt
+
+Mindset: jeder in dem prozess muss sich einbringen
+-->
+
 
 <!--
 _footer: |
@@ -1015,7 +1038,11 @@ _footer: |
 
 ---
 
-![](images/devops-pyramid-2.png)
+![](images/cloud-native-pyramid-2.png)
+
+<!--
+Aus sicht eines Beraters geschrieben daher customer
+-->
 
 <!--
 _footer: |
@@ -1024,15 +1051,26 @@ _footer: |
 -->
 ---
 
-![](images/devops-pyramid-3.png)
+![](images/cloud-native-pyramid-3.png)
 
 <!--
 _footer: |
     From Cloud Naive to Cloud Native - Avoiding mistakes everyone does
     Max Körbächer, Liquid Reply
 -->
+
 ---
 
+# Limitations
+
+* Scale
+
+<!--
+Wir brauchen teams für das alles
+macht keinen sinn wenn wir für 5 MA selbstgebaute app 
+-->
+
+---
 
 # Limitations
 
@@ -1040,8 +1078,11 @@ _footer: |
 * Acceptance
 
 <!--
-Wir brauchen teams für das alles
-macht keinen sinn wenn wir für 5 MA selbstgebaute app 
+Dev: wie ich soll mehr machen?
+Dev: warum soll ich mich um das kümmern was ich produziere?
+Ops: wieso soll ich containern mein .jar hat jetzt 20 jahre funktioniert
+
+das haben wir doch immer schon so gemacht
 -->
 
 ---
