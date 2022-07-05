@@ -16,7 +16,57 @@ _footer: ""
 
 ---
 
-*Insert pictures of kubecon of cloudnativeblablabla here*
+![bg](https://live.staticflickr.com/65535/52090618443_c69c58c333_k.jpg)
+
+<!--
+_footer: https://www.flickr.com/people/143247548@N03/
+-->
+---
+
+![](images/traefik-cloudnative-1.png)
+
+<!--
+_footer: https://traefik.io
+-->
+
+---
+
+![](images/traefik-cloudnative-2.png)
+
+<!--
+_footer: https://traefik.io
+-->
+
+---
+
+![](images/longhorn-cloudnative.png)
+
+<!--
+_footer: https://longhorn.io
+-->
+---
+
+![](images/cloudnative-harbor.png)
+
+<!--
+_footer: https://goharbor.io
+-->
+
+---
+
+![](images/cloud-natie-cockroachdb.png)
+
+<!--
+gehen sogar noch ein bisschen weiter und liefern argumente
+- geo-partitioning
+- kubernetes operator availible
+- kubernetes-compatible
+- prometheus integration
+-->
+
+<!--
+_footer: https://www.cockroachlabs.com/product/cloud-native/
+-->
 
 ---
 <!--
@@ -34,7 +84,12 @@ Fields of Interest:
 - Selfhosting
 - Sporty things
 
-![bg right](images/2021-09-09_16-28-34.jpg)
+Contact:
+E-Mail: michael.kreipl@x-cellent.com
+Linkedin: https://www.linkedin.com/in/kreiplm
+GitHub: https://github.com/ip025 
+
+![bg right:40%](images/2021-09-09_16-28-34.jpg)
 
 <!--
 Angefangen als linux admin
@@ -46,7 +101,7 @@ und allgemein automation
 # Motivation
 
 - What are Cloud Native Applications?
-- Everywhere you look there are different nuances, are they fundamentally the same thing?
+- Everywhere you look there are different nuances and understandings of Cloud Native, are they fundamentally the same thing?
 
 <!--
 wenns in der cloud läuft cloud-native? warscheinlich nicht
@@ -59,8 +114,11 @@ wenns in der cloud läuft cloud-native? warscheinlich nicht
 1. Naive Approach
 2. Organizational Approach
 3. Science
-4. Towards a Definition
-5. What now? 
+4. What now?
+
+<!--
+ist cloud native nur ein buzzword oder macht es einen unterschied wie cloud computing?
+-->
 
 ---
 
@@ -90,6 +148,11 @@ Google -> Wikipedia -> CNCF
 
 ![](https://pbs.twimg.com/media/EP6UeZSVUAA2LpD?format=jpg&name=large) 
 
+
+<!--
+_footer: |
+  original: https://dilbert.com/strip/2017-11-08
+-->
 ---
 
 # Organizational Approach
@@ -99,7 +162,7 @@ Google -> Wikipedia -> CNCF
 ![bg fit](images/x-cellent-cloudnative.png)
 
 <!--
-_footer: ""
+_footer: "https://www.x-cellent.com"
 -->
 
 ---
@@ -333,7 +396,7 @@ A set of technologies and methodologies to produce better software
 ![bg center fit](https://kubesphere.io/images/devops/dev-ops.png)
 
 <!--
-_footer: https://kubesphere.io/images/devops/dev-ops.png
+_footer: https://kubesphere.io/devops/
 -->
 
 <!--
@@ -463,13 +526,13 @@ public domain daher kein credit
 
 ---
 
-# Infrastructure
+## Infrastructure
 ```json
 module "ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "~> 3.0"
 
-  name = "🐄-Bella"
+  name = "🐮"
 
   ami                    = "ami-ebd02392"
   instance_type          = "t3a.large"
@@ -487,12 +550,12 @@ module "ec2_instance" {
 
 ---
 
-# Infrastructure
+## Infrastructure
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines",
   "apiVersion": "2021-11-01",
-  "name": "i-run-on-azure-😅",
+  "name": "i-run-on-azure-🙈",
   "location": "string",
   "tags": {
     "tagName1": "tagValue1",
@@ -510,7 +573,7 @@ module "ec2_instance" {
 ```yaml
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
-name: 🍌-prod
+name: 🍌
 nodes:
 - role: control-plane
 - role: worker
@@ -527,7 +590,7 @@ networking:
 apiVersion: k0sctl.k0sproject.io/v1beta1
 kind: Cluster
 metadata:
-  name: 🍎-prod
+  name: 🍎
 spec:
   hosts:
   - role: controller
@@ -540,7 +603,7 @@ spec:
       apiVersion: k0s.k0sproject.io/v1beta1
       kind: Cluster
       metadata:
-        name: 🍎-prod
+        name: 🍎
       spec:
         api:
           extraArgs:
@@ -551,13 +614,13 @@ spec:
 ```
 ---
 
-# Kubernetes Cluster
+## Kubernetes Cluster
 ```json
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 18.0"
 
-  cluster_name    = "🍑-prod"
+  cluster_name    = "🍑"
   cluster_version = "1.21"
   vpc_id     = "vpc-1234556abcdef"
   subnet_ids = ["subnet-abcde012", "subnet-bcde012a", "subnet-fghi345a"]
@@ -590,7 +653,7 @@ module "eks" {
 
 ---
 
-# Applications
+## Applications
 ansible:
 ```yaml
 - hosts: all
@@ -609,14 +672,13 @@ helm install argocd -n managed-services -f argo-values.yaml argocd/argocd
 ```
 
 ---
-# Certificates
+## Certificates
 
 ```yaml
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: noemoji-api
-  namespace: prod
 spec:
   secretName: frontend-ext-tls
   duration: 2160h # 90d
@@ -641,7 +703,50 @@ spec:
 
 ---
 
-# Presentations
+## Documentation
+
+```python
+from diagrams import Cluster, Diagram
+from diagrams.aws.compute import ECS
+from diagrams.aws.database import ElastiCache, RDS
+from diagrams.aws.network import ELB
+from diagrams.aws.network import Route53
+
+with Diagram("Clustered Web Services", show=False):
+    dns = Route53("dns")
+    lb = ELB("lb")
+
+    with Cluster("Services"):
+        svc_group = [ECS("web1"),
+                     ECS("web2"),
+                     ECS("web3")]
+
+    with Cluster("DB Cluster"):
+        db_primary = RDS("userdb")
+        db_primary - [RDS("userdb ro")]
+
+    memcached = ElastiCache("memcached")
+
+    dns >> lb >> svc_group
+    svc_group >> db_primary
+    svc_group >> memcached
+```
+
+<!--
+_footer: https://github.com/mingrammer
+-->
+
+---
+
+![bg center height:80%](https://diagrams.mingrammer.com/img/clustered_web_services_diagram.png)
+
+<!--
+_footer: https://github.com/mingrammer
+-->
+
+---
+
+## Presentations
 ```yaml
 ---
 marp: true
@@ -670,8 +775,6 @@ _footer: ""
 
 ---
 
-# Softwareization
-
 1. Make an entry in the CMDB
 2. Order a new network from the network team
 3. Order some VMs from the virtualization team
@@ -690,6 +793,8 @@ _footer: ""
 -->
 
 <!--
+Beispiel ein webserver der aus dem internet erreibar ist mit einer datenbank hinten dran
+
 Entweder ich muss mich mit einem haufen systemen befassen.
 
 oder ich muss mit einem haufen Leuten Sprechen
@@ -715,8 +820,20 @@ oder ich muss mit einem haufen Leuten Sprechen
 
 - Source Control
 - Code Reviews
-- Reproducability
+- Reproducibility
 - Standardization
+
+<!--
+source control: ich kann änderungen nachvollziehen weil ich eine vollständige historie hab
+ich kann auf einen beliebigen stand zurückspringen
+integration von vielen verschiedenen devs
+
+code reviews: ich kann senior leute entlasten dadurch das sie nur den output anschauen
+
+Reproducibility: wenn ich 10x was mache ist es 10x gleich
+
+Standardization: wenn MA1 setzt den Server ander auf als MA2 und der Guide
+-->
 
 ---
 
