@@ -4,6 +4,7 @@ theme: gardener
 footer: Michael Kreipl – x-cellent technologies GmbH
 paginate: true
 backgroundImage: url("https://metal-stack.io/images/shape/banner.png")
+# backgroundImage: url(images/background-branded.png)
 ---
 <!--
 _paginate: false
@@ -14,6 +15,34 @@ _footer: ""
 ### Michael Kreipl
 ### 08.07.2022
 
+---
+
+<!--
+_paginate: false
+_footer: ""
+-->
+
+# whoami
+
+* Michael Kreipl
+* DevOps Consultant
+
+## Fields of Interest
+- Infrastructure Automation
+- Selfhosting
+
+## Contact
+E-Mail: michael.kreipl@x-cellent.com
+Linkedin: https://www.linkedin.com/in/kreiplm
+GitHub: https://github.com/ip025 
+
+![bg right:40%](images/2021-09-09_16-28-34.jpg)
+
+<!--
+Angefangen als linux admin
+dann public cloud engineer
+und allgemein automation
+-->
 ---
 
 ![bg](https://live.staticflickr.com/65535/52090618443_c69c58c333_k.jpg)
@@ -69,42 +98,18 @@ _footer: https://www.cockroachlabs.com/product/cloud-native/
 -->
 
 ---
-<!--
-_paginate: false
-_footer: ""
--->
-
-# whoami
-
-* Michael Kreipl
-* DevOps Consultant
-
-Fields of Interest:
-- Infrastructure Automation
-- Selfhosting
-- Sporty things
-
-Contact:
-E-Mail: michael.kreipl@x-cellent.com
-Linkedin: https://www.linkedin.com/in/kreiplm
-GitHub: https://github.com/ip025 
-
-![bg right:40%](images/2021-09-09_16-28-34.jpg)
-
-<!--
-Angefangen als linux admin
-dann public cloud engineer
-und allgemein automation
--->
----
 
 # Motivation
 
-- What are Cloud Native Applications?
-- Everywhere you look there are different nuances and understandings of Cloud Native, are they fundamentally the same thing?
+- What does Cloud Native stand for?
+- Is Cloud Based = Cloud Native?
 
 <!--
 wenns in der cloud läuft cloud-native? warscheinlich nicht
+-->
+
+<!--
+_backgroundImage: url(images)
 -->
 
 ---
@@ -113,8 +118,9 @@ wenns in der cloud läuft cloud-native? warscheinlich nicht
 
 1. Naive Approach
 2. Organizational Approach
-3. Science
+3. Scientific Approach
 4. What now?
+5. Closing Remarks
 
 <!--
 ist cloud native nur ein buzzword oder macht es einen unterschied wie cloud computing?
@@ -138,7 +144,7 @@ Google -> Wikipedia -> CNCF
 
 ---
 
-> Cloud native technologies empower organizations to build and run **scalable applications** in modern, **dynamic environments** such as public, private, and hybrid clouds. **Containers, service meshes, microservices, immutable infrastructure, and declarative APIs** exemplify this approach.
+> Cloud native technologies empower organizations to build and run **scalable applications** in modern, **dynamic environments** such as public, private, and hybrid clouds. *Containers, service meshes, microservices, immutable infrastructure, and declarative APIs* exemplify this approach.
 > 
 >  These techniques enable **loosely coupled systems** that are **resilient, manageable, and observable**. Combined with **robust automation,** they allow engineers to make high-impact changes frequently and predictably with minimal toil.
 
@@ -217,9 +223,19 @@ je nachdem mit wem man spricht
 
 # Research
 
+<!--
+Die x-cellent sicht ist valide, aber halt auch nur die sicht/meinung einer organisation
+-->
+
 ---
 
 ![](images/systematic_study_head.png)
+
+<!--
+Metanalyse zum Thema
+
+über 100 wissenschaftliche Publikationen zu dem Thema analysiert
+-->
 
 ---
 
@@ -234,16 +250,15 @@ je nachdem mit wem man spricht
 5. State Isolation
 6. Versioned REST APIs
 
-<!--
-Metanalyse zum Thema
--->
-
 ---
 
-
-![bg right fit](https://www.com-magazin.de/img/9/3/7/1/9/7/Docker_w492_h312.jpg)
-
 # Standardized Deployment Units
+
+![bg right fit](https://pic.onlinewebfonts.com/svg/img_385606.png)
+
+<!--
+_footer: https://www.onlinewebfonts.com/icon/385606
+-->
 
 ---
 
@@ -260,11 +275,16 @@ Muss kein Container sein Virtual Applicances
 
 ---
 
-# Standardized Deployment Units
-![](images/2022-06-02%2016.59.54%20trends.google.de%205e1fa17caf2c.png)
+![bg fit center](images/trends.svg)
+
 <!--
 warum container und nicht VM?
-TODO: Serverless adden
+
+![](images/2022-06-02%2016.59.54%20trends.google.de%205e1fa17caf2c.png)
+-->
+
+<!--
+_footer: https://trends.google.de/trends/explore?date=all&q=docker,virtual%20machine,serverless
 -->
 
 ---
@@ -272,7 +292,7 @@ TODO: Serverless adden
 ![bg fit center](images/bare-vm-container-faas.png)
 
 <!--
-![](https://miro.medium.com/max/1400/1*cgaBv9WOLVzihnSxZlUmmQ.png)
+Dabei muss man dazu sagen das container garnicht so modern sind wie sie in den trends hier aussehen
 -->
 
 ---
@@ -282,6 +302,13 @@ TODO: Serverless adden
 
 * Gaurav Banga, Peter Druschel, and Jeffrey C. Mogul. (1999) Resource containers: A new facility for resource management in server systems.
 * R. Lottiaux and C. Morin. (2001) Containers: A sound basis for a true single system image.
+
+
+<!--
+so viel zu den containern/standartisierte deployment units
+
+die erlauben uns jetzt folgendes:
+-->
 
 ---
 
@@ -365,6 +392,12 @@ A set of technologies and methodologies to produce better software
 - Automation
 - Accelerates build, test and deployment of applications
 
+<!--
+das ist cool aber wie setzen wir das  um?
+
+schauen wir uns mal den klassischen Fall an
+-->
+
 ---
 
 # DevOps
@@ -410,7 +443,7 @@ wo ist denn dann der OPS hin? Spare ich mir da Personal? -> Platform team
 
 ---
 
-# The DevOps platform team
+# DevOps: The platform team
 ## The basics
 - Provide the platform in a **centralized, consistent** manner
   - Container Platform
@@ -433,7 +466,7 @@ Im falle von OnPrem K8s müssen die nodes ja auch iwo laufen
 - Implement alerting to enforce good security practices
   - Allow only signed images from internal registry
   - Alert when deploying an container image with known CVEs
-  - Have a forensics plan
+  - Design a plan for forensics
 
 <!--
 erlaube keine Container Images zu deployen die bekannte CVEs enthalten
@@ -460,6 +493,12 @@ Mit den DEVs zusammen pipelines entwickeln!
     - Monitoring
     - Alerting
     - Tracing
+
+<!--
+wenn unsere development umgebung schon so komplex ist muss ich zumindest wissen was los ist
+
+wird alles vom platform team mitverwendet, ausser tracing
+-->
 
 ---
 
@@ -506,7 +545,30 @@ Da stellt sich die frage, so ein DevOpsler muss ja ne Menge können/wissen?
 <!--
 MS teams nicht von Devops managen lassen
 aber dann bitte die webhook API freischalten dasman über deployments informieren kann
+
+kein industrie konsens, erfahrungen von mir die die arbeit erleichtern
 -->
+
+---
+
+# DevOps
+
+> you build it, you run it
+
+Werner Vogels (2006)
+
+<!--
+Amazon CTO (immer noch)
+-->
+
+---
+
+# DevOps
+
+> you build it, you run it
+> 
+> on a robust and easy to use platform
+> in collaboration
 
 ---
 
@@ -960,7 +1022,7 @@ mobile App in kotlin
 
 But:
 * gRPC on the horizon
-* 
+
 ---
 
 <!-- Studie worauf alles basiert schon älter, daher REST als alternativlos gesehen -->
@@ -1055,13 +1117,33 @@ _footer: https://github.com/traefik/whoami
 
 # Loose coupling
 
+![right fit bg](images/coupling.svg)
+
+<!--
+Ziehlt ähnlich wie State Isolation auf die Komposition der Services ab
+
+State Isolation zielt ab wie die komponenten abgegrenzt werden
+
+loose coupling beschreibt die kommunikation zwischen den komponenten
+
+bsp alte java app:
+business logic
+log shipper
+UI alles in einem packet
+-->
+
 ---
 
-# Loose coupling
-* Data/Event driven
-* eventually consistent
+# Service Composition by
+## Events
+* Asymetric messaging solutions
+## Data
+* Eventually consistent Databases
 
-<!-- vorgänge werden asynchron abgehandelt -->
+<!-- vorgänge werden asynchron abgehandelt
+kommunikation zwischen komponenten
+komponenten müssen sich finden (service discovery)
+ -->
 
 ---
 
@@ -1123,17 +1205,43 @@ Datenbanken mit einschränkungen, Performance, Dual Write Problem etc. https://w
 
 ---
 
-# What now!?
+# Distinction to Cloud Based
+
+## Essential Characteristics of Cloud Computing
+
+* On-demand self-service
+* Broad network access
+* Resource pooling
+* Rapid elasticity
+* Measured service
+
+<!--
+_footer: NIST SP 800-145, The NIST Definition of Cloud Computing (2011)
+-->
 
 ---
 
-# Pitfalls
+# Considerations
+
+* The Approach is counter-intuitive, since we give more autonomy to small teams, leading to more heterogenous components
+* The usual engineering approach is to work towards component homogenity
+* Long term effects of this will need to be evaluated
+
+<!--
+_footer: Kratzke, Quint (2017)
+-->
+
+---
+
+# The Cloud Native Pyramid
 
 ---
 
 ![](images/cloud-native-pyramid-1.png)
 
 <!--
+Alle Ebenen ungefähr gleicher Anteil
+
 Infrastruktur: technische grundlage, cloud/onprem
 
 business requirement: ist cloud native überhaubt die lösung
@@ -1145,7 +1253,6 @@ das was das devops platform team bereitstellt
 
 Mindset: jeder in dem prozess muss sich einbringen
 -->
-
 
 <!--
 _footer: |
@@ -1183,7 +1290,8 @@ _footer: |
 * Scale
 
 <!--
-Wir brauchen teams für das alles
+Im optimalfall 1 dev team für jede komponente/microservice
+
 macht keinen sinn wenn wir für 5 MA selbstgebaute app 
 -->
 
@@ -1203,3 +1311,45 @@ das haben wir doch immer schon so gemacht
 -->
 
 ---
+
+# Summary
+
+* The Cloud Native applications are
+  * Distributed
+  * Scalable
+  * Resilient
+  * Load Adaptive
+
+* Cloud Native is as much about **people, processes and mindset** as much as it's about **technology**
+
+---
+
+![h:200](images/x-cellent-technologies-rgb.svg)
+Homepage: https://www.x-cellent.com
+E-Mail: info@x-cellent.com
+Linkedin: https://www.linkedin.com/company/x-cellent-technologies-gmbh
+GitHub: https://github.com/x-cellent
+
+<!--
+_backgroundImage: ""
+_paginate: false
+_footer: ""
+-->
+
+---
+
+# Questions?
+
+<!--
+_paginate: false
+_footer: ""
+-->
+
+---
+
+# Thank you for listening!
+
+<!--
+_paginate: false
+_footer: ""
+-->
